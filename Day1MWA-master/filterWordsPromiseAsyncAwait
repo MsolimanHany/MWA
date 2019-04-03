@@ -1,0 +1,24 @@
+String.prototype.filterWordsprom= function(str){
+  var str1 = this.split(" ");
+  function mypromise() {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        const map1 = str1.map(x =>{ if(str.includes(x)) {return "***";} else {return x;} });
+
+        resolve(map1.join(' '));
+      }, 100);
+    });
+  }
+
+  async function asyncCall() {
+    console.log('Hello');
+    const result = await mypromise();
+    console.log(result);
+  }
+
+  asyncCall();
+
+
+
+}
+console.log("This house is nice. test".filterWordsprom(["house","nice","test"]));

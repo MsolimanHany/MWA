@@ -1,0 +1,50 @@
+Q1 :
+
+
+setTimeout is simply like calling the function after delay has finished. Whenever a function is called it is not executed immediately, but queued so that it is executed after all the executing and currently queued eventhandlers finish first. setTimeout(,0) essentially means execute after all current functions in the present queue get executed.
+
+But
+
+
+setImmediate is similar in this regard except that it doesn't use queue of functions. It checks queue of I/O eventhandlers. If all I/O events in the current snapshot are processed, it executes the callback. It queues them immedieately after the last I/O handler somewhat like process.nextTick. So it is faster
+
+
+so setImmediate is faster than setTimeout so if you make delayingTime = 0 in setTimeout this will be slower than setImmediate
+
+because it will check the timer at least once before executing.
+
+
+
+----------
+
+Q2:
+
+process.NextTick() would executed at next tick of event loop. However, the setImmediate, basically has a separate phase which ensures that the callback registered under setImmediate() will be called only after the IO callback and polling phase.
+
+process.nextTick() fires immediately on the same phase
+
+setImmediate() fires on the following iteration or 'tick' of the
+event loop. and this is the main difference 
+
+
+when we talk about nextTick so we means nextTick Queue that already have high priority over check queue that was existed in event Loop
+
+
+
+--------
+
+Q3:
+
+built-in modules which you can use without any further installation.
+
+
+fs
+http
+buffer
+path
+stream,
+timers
+zlib,
+process
+events
+stream

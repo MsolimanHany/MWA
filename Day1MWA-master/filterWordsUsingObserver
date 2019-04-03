@@ -1,0 +1,22 @@
+const {from,of}=rxjs;
+const {map,filter,reduce }=rxjs.operators;
+
+console.log("Solution 4: Observeable\n");
+const data="test aaa sss ddd"
+
+String.prototype.filterWordsObserv=function(str){
+  var result = "";
+    var str1 = this.split(" ");
+     from(str1)
+    .pipe(
+        map((obj)=>str.includes(obj)?"***":obj),
+    reduce((acc, obj) => acc +" "+ obj)
+
+  )
+      .subscribe(
+        (obj)=> result = obj)
+
+return result;
+
+}
+console.log("This house is nice. test".filterWordsObserv(["house","nice","test"]));

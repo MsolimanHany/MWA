@@ -1,0 +1,20 @@
+const {from,of}=rxjs;
+const {map,filter,reduce }=rxjs.operators;
+
+function days2 ()
+{
+  const d = new Date();
+const nums = d.getDay();
+var res = "";
+const weekday = from([1, 2, 3, 4, 5]); //first observ
+const weekend = from([0, 6]); //second observ
+
+const myweekday = weekday.pipe(filter(num => num === nums));
+const myweekend = weekend.pipe(filter(num => num === nums));
+
+const subscribeweekday = myweekday.subscribe(val => res = "weekday") ;
+const subscribeweekend = myweekend.subscribe(val => res = "weekend");
+
+return res;
+
+}

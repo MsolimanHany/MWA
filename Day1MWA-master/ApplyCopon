@@ -1,0 +1,18 @@
+const item = {
+"price":100
+}
+
+function applyCopon(myitem)
+{
+
+return function discount (x)
+{
+  myitem.price  =  myitem.price -  (myitem.price * (x/100) );
+  return myitem;
+
+}
+
+}
+
+
+console.log(applyCopon(item)(10).price);

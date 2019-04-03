@@ -1,0 +1,10 @@
+String.prototype.filterWords = function (arr) {
+  var myarray = this.split(" ");
+  const map1 = myarray.map(x =>{ if(arr.includes(x)) {return "***";} else {return x;} });
+  return map1.join('');
+
+
+
+};
+
+console.log("good sister ok".filterWords(["sister"]));
