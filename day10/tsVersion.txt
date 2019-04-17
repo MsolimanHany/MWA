@@ -1,0 +1,14 @@
+class University{
+constructor(public name:string, public dept:string)
+{
+
+}
+
+graduation(year:number):void
+{
+    console.log('Graduation year is ${this.dept} and year is ${year}')
+}
+    
+}
+let univ  = new University("ahmed","cs");
+univ.graduation(2019);
